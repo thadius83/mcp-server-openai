@@ -2,6 +2,66 @@
 
 Query OpenAI models directly from Claude using MCP protocol. This fork adds support for o3-mini and gpt-4o-mini models with improved message handling.
 
+## Cline Auto Install
+
+```
+Set up the MCP server from https://github.com/thadius83/mcp-server-openai. 
+Use "github.com/thadius83/mcp-server-openai" as the server name in cline_mcp_settings.json.
+Analyse the readme and instructions below. Do not create new files in the repo, utilise the findings from pyproject.toml, src/mcp_server_openai/server.py, src/mcp_server_openai/llm.py
+Once installed, demonstrate the server's capabilities by using one of its tools.
+
+Installation Steps:
+# Clone the repository
+git clone https://github.com/thadius83/mcp-server-openai
+cd mcp-server-openai
+
+# Install the package
+pip install .
+
+MCP Settings Configuration: The cline_mcp_settings.json should be configured with:
+Correct server name format: "github.com/thadius83/mcp-server-openai"
+Python module path structure for the server
+PYTHONPATH environment variable pointing to the project directory
+OpenAI API key passed as a command line argument
+
+Example configuration:
+{
+  "mcpServers": {
+    "github.com/thadius83/mcp-server-openai": {
+      "command": "python",
+      "args": [
+        "-m",
+        "src.mcp_server_openai.server",
+        "--openai-api-key",
+        "your-openai-api-key"
+      ],
+      "env": {
+        "PYTHONPATH": "/path/to/mcp-server-openai"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+
+Requirements:
+Python >= 3.10
+OpenAI API key
+Dependencies installed via pip (mcp>=0.9.1, openai>=1.0.0, click>=8.0.0, pytest-asyncio)
+
+Available Tools:
+Tool Name: ask-openai
+Description: Ask OpenAI assistant models a direct question
+Models Available:
+o3-mini (default)
+gpt-4o-mini
+Input Schema:
+{
+  "query": "Your question here",
+  "model": "o3-mini" // optional, defaults to o3-mini
+}
+```
+
 ## Features
 
 - Direct integration with OpenAI's API
