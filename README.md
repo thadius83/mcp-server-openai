@@ -1,4 +1,5 @@
 # OpenAI MCP Server
+[![smithery badge](https://smithery.ai/badge/@thadius83/mcp-server-openai)](https://smithery.ai/server/@thadius83/mcp-server-openai)
 
 Query OpenAI models directly from Claude using MCP protocol. This fork adds support for o3-mini and gpt-4o-mini models with improved message handling.
 
@@ -16,7 +17,7 @@ git clone https://github.com/thadius83/mcp-server-openai
 cd mcp-server-openai
 
 # Install the package
-pip install .
+pip install .`
 
 MCP Settings Configuration: The cline_mcp_settings.json should be configured with:
 Correct server name format: "github.com/thadius83/mcp-server-openai"
@@ -73,6 +74,16 @@ Input Schema:
 - Simple interface through MCP protocol
 
 ## Installation
+
+### Installing via Smithery
+
+To install OpenAI MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@thadius83/mcp-server-openai):
+
+```bash
+npx -y @smithery/cli install @thadius83/mcp-server-openai --client claude
+```
+
+### Manual Installation
 
 1. **Clone the Repository**:
 ```bash
